@@ -18,7 +18,7 @@ public class JogoPegaPreaGUI extends JFrame {
 
     private final String imagemEstudante1 = "src/main/resources/images/estudante1.jpeg";
     private final String imagemEstudante2 = "src/main/resources/images/estudante2.jpeg";
-    private final String imagemEstudante3 = "src/main/resources/images/estudante3.jpeg";
+    private final String imagemEstudante3 = "src/main/resources/images/estudante3.png";
     private final String imagemPrea = "src/main/resources/images/prea.jpeg";
 
     private final Tabuleiro tabuleiro; // Representa o tabuleiro.
