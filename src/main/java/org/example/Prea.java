@@ -31,7 +31,6 @@ public class Prea extends Peca {
             return false;
         } 
 
-
         // Se está em uma posição cinza, bloqueia movimentos diagonais
         if (Tabuleiro.coresTabuleiro[x][y] == Color.GRAY && deltaX == 1 && deltaY == 1) {
             return false; // Movimento diagonal é inválido em posições cinzas
