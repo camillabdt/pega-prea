@@ -25,6 +25,11 @@ public class Prea extends Peca {
         int deltaX = Math.abs(novoX - x);
         int deltaY = Math.abs(novoY - y);
 
+        // Não pode pular mais de uma casa
+        if (deltaX > 1 || deltaX > 1) {
+            return false;
+        }
+
         // Se está em uma posição cinza, bloqueia movimentos diagonais
         if (Tabuleiro.coresTabuleiro[x][y] == Color.GRAY && deltaX == 1 && deltaY == 1) {
             return false; // Movimento diagonal é inválido em posições cinzas

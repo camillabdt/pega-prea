@@ -31,8 +31,6 @@ public class Estudante extends Peca {
         return id;
     }
 
-  
-
     @Override
     public boolean mover(int novoX, int novoY) {
         if (isMovimentoValido(novoX, novoY)) {
@@ -47,16 +45,21 @@ public class Estudante extends Peca {
     public boolean isMovimentoValido(int novoX, int novoY) {
         int deltaX = Math.abs(novoX - x);
         int deltaY = Math.abs(novoY - y);
-        
+        System.out.println("isMovimentoValido?"+deltaX+","+deltaY);
+
+        // Não pode pular mais de uma casa
+        if (deltaX > 1 || deltaY > 1) { 
+            System.out.println("Não pode pular mais de uma casa!!");
+            return false;
+        } 
 
         // Se está em uma posição cinza, bloqueia movimentos diagonais
         if (Tabuleiro.coresTabuleiro[x][y] == Color.GRAY && deltaX == 1 && deltaY == 1) {
             return false; // Movimento diagonal é inválido em posições cinzas
         }
-       
-        
+
         if (novoY < y) {
-                    System.out.println("O estudante não pode andar para trás");
+            System.out.println("O estudante não pode andar para trás");
             return false; // O estudante não pode andar para trás
         }
         return true;
