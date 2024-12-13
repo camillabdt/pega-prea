@@ -7,6 +7,7 @@ import org.example.Estudante;
 import org.example.JogadaInvalidaException;
 import org.example.Peca;
 import org.example.Prea;
+import org.example.AudioPlayer;
 
 /**
  * Gerencia o estado e a lógica principal do jogo. Controla os turnos,
@@ -20,6 +21,7 @@ public class JogoPegaPrea {
     private int estudanteSelecionado; // Controla o estudante que está ativo.
     private final Estudante[] estudantes; // Lista de estudantes no jogo.
     private final Prea prea; // A peça Preá.
+    private final AudioPlayer AudioPlayer;
 
     /**
      * Inicializa o estado inicial do jogo com peças posicionadas no tabuleiro.
@@ -30,6 +32,10 @@ public class JogoPegaPrea {
         this.tabuleiro = tabuleiro;
         vezDoEstudante = true;
         estudanteSelecionado = 0;
+        
+          // Inicializa o reprodutor de música e toca a música
+        this.AudioPlayer = new AudioPlayer();
+        tocarMusica();
 
         // Criação das peças do jogo
         prea = new Prea(1, 4);
@@ -312,4 +318,26 @@ public class JogoPegaPrea {
         }
         return temParaOndeIr;
     }
+    
+      /**
+     * Toca a música de fundo.
+     */
+    private void tocarMusica() {
+        try {
+            AudioPlayer.carregarMusica("C:\\faculdade\\pega-prea\\src\\main\\resources\\video-game-boss-fiight-259885.wav"); // Insira o caminho correto do arquivo
+            AudioPlayer.tocarMusica();
+        } catch (Exception e) {
+            System.err.println("Erro ao tocar música: " + e.getMessage());
+        }
+    }
+
+    /**
+     * Para a música de fundo.
+     */
+    private void pararMusica() {
+        AudioPlayer.pararMusica();
+    }
+
+   
 }
+
